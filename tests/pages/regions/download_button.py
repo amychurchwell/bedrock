@@ -11,7 +11,7 @@ class DownloadButton(Region):
     _download_link_locator = (By.CSS_SELECTOR, '.download-link')
 
     @property
-    def _platform_link(self):
+    def platform_link(self):
         els = [el for el in self.find_elements(*self._download_link_locator)
                if el.is_displayed()]
         assert len(els) == 1, 'Expected one platform link to be displayed'
@@ -19,7 +19,15 @@ class DownloadButton(Region):
 
     @property
     def is_displayed(self):
-        return self.root.is_displayed() and self._platform_link.is_displayed() or False
+        return self.root.is_displayed() and self.platform_link.is_displayed() or False
+
+    @property
+    def is_transitional_link(self):
+        return '/firefox/download/thanks/' in self.platform_link.get_attribute('href')
+
+    @property
+    def is_yandex_link(self):
+        return 'https://yandex.ru/firefox/mozilla/' in self.platform_link.get_attribute('href')
 
     def click(self):
-        self._platform_link.click()
+        self.platform_link.click()

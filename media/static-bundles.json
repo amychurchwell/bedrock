@@ -834,6 +834,12 @@
         "css/mozorg/commit-access-requirements.less"
       ],
       "name": "commit-access-requirements"
+    },
+    {
+      "files": [
+        "css/firefox/pocket.scss"
+      ],
+      "name": "product_pocket"
     }
   ],
   "js": [

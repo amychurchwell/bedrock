@@ -13,6 +13,8 @@
 
 {% block body_id %}pocket-landing{% endblock %}
 
+{% set lazy_image_placeholder = 'mozorg/developer/hub/placeholder.png' %}
+
 {% block content %}
 <main class="mzp-t-firefox">
   <section id="pocket-hero" class="mzp-c-hero mzp-has-image mzp-t-dark">
@@ -68,7 +70,8 @@
       <div class="mzp-c-card mzp-c-card-medium mzp-has-aspect-3-2">
         <a class="mzp-c-card-block-link" href="https://support.mozilla.org/kb/save-web-pages-later-pocket-firefox">
           <div class="mzp-c-card-media-wrapper">
-            <img src="{{ static('img/firefox/products/pocket/pocket-save.png') }}" alt="">
+            {{ lazy_img(image_url='firefox/products/pocket/pocket-save.png', include_highres_image=True, placeholder_url='placeholder.png') }}
+            <!-- <img src="{{ static('img/firefox/products/pocket/pocket-save.png') }}" alt=""> -->
           </div>
           <div class="mzp-c-card-content">
             <h3 class="mzp-c-card-title">{{ _('Save It Fast') }}</h3>
@@ -80,7 +83,8 @@
       <div class="mzp-c-card mzp-c-card-medium mzp-has-aspect-3-2">
         <a class="mzp-c-card-block-link" href="https://help.getpocket.com/article/1142-firefox-new-tab-recommendations">
           <div class="mzp-c-card-media-wrapper">
-            <img src="{{ static('img/firefox/products/pocket/pocket-discover.png') }}" alt="">
+            {{ lazy_img(image_url='firefox/products/pocket/pocket-discover.png', include_highres_image=True, placeholder_url='placeholder.png') }}
+            <!-- <img src="{{ static('img/firefox/products/pocket/pocket-discover.png') }}" alt=""> -->
           </div>
           <div class="mzp-c-card-content">
             <h3 class="mzp-c-card-title">{{ _('Get Great Recommendations') }}</h3>
@@ -108,11 +112,14 @@
     </div>
 
     <div class="mzp-c-hero-image">
-      <img src="{{ static('img/firefox/products/pocket/pocket-illo-mobile.png') }}" alt="">
+      {{ lazy_img(image_url='firefox/products/pocket/pocket-illo-mobile.png', include_highres_image=False, placeholder_url='placeholder.png') }}
+      <!-- <img src="{{ static('img/firefox/products/pocket/pocket-illo-mobile.png') }}" alt=""> -->
     </div>
   </section>
 
 </main>
 {% endblock %}
 
-{% block js %}{% endblock %}
+{% block js %}
+  {{ js_bundle('product_pocket') }}
+{% endblock %}

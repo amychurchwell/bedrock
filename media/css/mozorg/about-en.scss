@@ -19,10 +19,9 @@ $image-path: '/media/protocol/img';
 /* -------------------------------------------------------------------------- */
 // Page title
 
-.mzp-c-hero {
+.mzp-c-hero.t-mission {
     @include at2x('/media/img/mozorg/about/about-hero-xxs.jpg', auto, 400px);
     @include border-box;
-    background-color: #fff;
     background-repeat: no-repeat;
     background-position: bottom center;
     height: 400px;
@@ -70,14 +69,11 @@ $image-path: '/media/protocol/img';
 // Page title
 
 .c-page-title {
-    @include font-size(14px);
-    @include open-sans;
+    @include text-display-sm;
     margin-top: $spacing-xs;
     margin-bottom: $spacing-md;
 
     @media #{$mq-lg} {
-        @include font-size(24px);
-        @include zilla-slab;
         margin-top: $spacing-2xl - $spacing-lg;
         margin-bottom: $spacing-xl;
     }
@@ -113,24 +109,60 @@ $city-image-size: 106px;
 
 .c-city {
     @include text-body-sm;
+    display: block;
     margin: $spacing-2xl;
     position: relative;
     text-align: center;
-}
 
-.c-city-image {
-    height: $city-image-size;
-    margin-bottom: $spacing-md;
-    width: $city-image-size;
+    &:before {
+        content: '';
+        display: block;
+        height: $city-image-size;
+        width: $city-image-size;
+        background-size: $city-image-size;
+        margin: 0 auto $spacing-md;
+    }
+
+    &.c-city-sf:before {
+        background-image: url('/media/img/mozorg/about/city-sf.png');
+    }
+
+    &.c-city-berlin:before {
+        background-image: url('/media/img/mozorg/about/city-berlin.png');
+    }
+
+    &.c-city-taipei:before {
+        background-image: url('/media/img/mozorg/about/city-taipei.png');
+    }
+
+    &.c-city-toronto:before {
+        background-image: url('/media/img/mozorg/about/city-toronto.png');
+    }
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+        color: $color-black;
+        text-decoration: none;
+    }
 }
 
 .c-city-title {
     @include open-sans;
     @include text-body-sm;
-    border-bottom: 1px solid $color-gray-30;
+    border-bottom: 2px solid $color-gray-30;
+    border-image: linear-gradient(to top, $color-gray-30 1px, $color-white 1px) 2;
     padding-bottom: $spacing-sm;
     margin: 0 auto $spacing-sm;
     max-width: 200px;
+
+    .c-city:hover &,
+    .c-city:focus &,
+    .c-city:active {
+        border-color: $color-black;
+        border-image: linear-gradient(to top, $color-black 1px, $color-black 1px) 2;
+    }
 }
 
 .c-city-desc {
@@ -151,17 +183,17 @@ $city-image-size: 106px;
         margin: $spacing-2xl auto;
         max-width: remify(250px); //rems to account for larger fonts
         padding-left: $city-image-size + ($spacing-xl * 2);
-    }
 
-    .c-city-image {
-        position: absolute;
-        top: 50%;
-        left: $spacing-xl;
-        margin-top: ($city-image-size / 2 * -1) - 3px; // minus half to vertically centre and then -3px to account for the little bits that stick up past the circle part
+        &:before {
+            position: absolute;
+            top: 50%;
+            left: $spacing-xl;
+            margin-top: ($city-image-size / 2 * -1) - 3px; // minus half to vertically centre and then -3px to account for the little bits that stick up past the circle part
+        }
     }
 
     .c-city-title {
-        border-bottom: none;
+        border-image: linear-gradient(to top, $color-white 1px, $color-white 1px) 2;
         padding-bottom: 0;
         margin-bottom: 0;
     }

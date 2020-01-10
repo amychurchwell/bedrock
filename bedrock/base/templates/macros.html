@@ -55,81 +55,78 @@
 {# Docs: https://bedrock.readthedocs.io/en/latest/send-to-device.html #}
 {% macro send_to_device(platform='all', product='firefox', message_set='default', id='send-to-device', class='horizontal', include_title=True, title_text=None, input_label=None, legal_note_email=None, legal_note_sms=None, spinner_color='#000') %}
   <section id="{{ id }}" class="send-to-device {{ class }}" data-countries="{{ send_to_device_sms_countries(message_set) }}" data-spinner-color="{{ spinner_color }}">
-    <div class="form-container">
-      {% if include_title %}
-        <h2 class="form-heading">
-        {% if title_text %}
-          {{ title_text }}
-        {% else %}
-          {{ _('Send Firefox to your smartphone or tablet') }}
-        {% endif %}
-        </h2>
+    {% if include_title %}
+      <h2>
+      {% if title_text %}
+        {{ title_text }}
+      {% else %}
+        {{ _('Send Firefox to your smartphone or tablet') }}
       {% endif %}
-      <h2 class="thank-you hidden">{{ _('Your download link was sent.') }}</h2>
-      <form class="send-to-device-form" action="{{ url('firefox.send-to-device-post') }}" method="post">
-        <ul class="error-list hidden">
-          <li class="sms">
-          {% if l10n_has_tag('sendto_updates_bug1395342') %}
-            {{ _('Sorry, we can’t send SMS messages to this phone number.') }}
+      </h2>
+    {% endif %}
+    <h2 class="thank-you hidden">{{ _('Your download link was sent.') }}</h2>
+    <form class="send-to-device-form" action="{{ url('firefox.send-to-device-post') }}" method="post">
+      <ul class="error-list hidden">
+        <li class="sms">
+        {% if l10n_has_tag('sendto_updates_bug1395342') %}
+          {{ _('Sorry, we can’t send SMS messages to this phone number.') }}
+        {% else %}
+          {{ _('Sorry. This number isn’t valid. Please enter a U.S. phone number.') }}
+        {% endif %}
+        </li>
+        <li class="email">{{ _('Please enter an email address.') }}</li>
+        <li class="system">{{ _('An error occurred in our system. Please try again later.') }}</li>
+      </ul>
+
+      <div class="send-to-device-form-fields">
+        <input type="hidden" name="platform" value="{{ platform }}">
+        <input type="hidden" name="source-url" value="{{ request.build_absolute_uri(request.path) }}">
+        <input type="hidden" name="message-set" value="{{ message_set }}">
+        <input type="hidden" name="product" value="{{ product }}">
+        <div class="inline-field">
+          <label class="form-input-label" for="{{ id }}-input" data-alt="{% if l10n_has_tag('sendto_updates_bug1395342') %}{{ _('Enter your email or phone number') }}{% else %}{{ _('Enter your email or 10-digit phone number') }}{% endif %}">
+            {% if input_label %}
+              {{ input_label }}
+            {% else %}
+              {{ _('Enter your email') }}
+            {% endif %}
+          </label>
+          <div class="form-input">
+            <input id="{{ id }}-input" class="send-to-device-input" name="phone-or-email" type="text" required>
+          </div>
+          <div class="form-submit">
+            <button type="submit" class="button mzp-c-button mzp-t-product">{{ _('Send') }}</button>
+          </div>
+        </div>
+        <p class="legal sms">
+          {% if legal_note_sms %}
+            {{ legal_note_sms }}
           {% else %}
-            {{ _('Sorry. This number isn’t valid. Please enter a U.S. phone number.') }}
+            {% if l10n_has_tag('sendto_updates_bug1395342') %}
+              {{ _('SMS service available in select countries only. SMS &amp; data rates may apply.') }}
+            {% else %}
+              {{ _('SMS service available to U.S. phone numbers only. SMS &amp; data rates may apply.') }}
+            {% endif %}
+              {{ _('The intended recipient of the email or SMS must have consented.')}}
           {% endif %}
-          </li>
-          <li class="email">{{ _('Please enter an email address.') }}</li>
-          <li class="system">{{ _('An error occurred in our system. Please try again later.') }}</li>
-        </ul>
-        <div class="send-to-device-form-fields">
-          <div class="platform-container">
-            <input type="hidden" name="platform" value="{{ platform }}">
-            <input type="hidden" name="source-url" value="{{ request.build_absolute_uri(request.path) }}">
-            <input type="hidden" name="message-set" value="{{ message_set }}">
-            <input type="hidden" name="product" value="{{ product }}">
-          </div>
-          <div class="inline-field">
-            <label class="form-input-label" for="{{ id }}-input" data-alt="{% if l10n_has_tag('sendto_updates_bug1395342') %}{{ _('Enter your email or phone number') }}{% else %}{{ _('Enter your email or 10-digit phone number') }}{% endif %}">
-              {% if input_label %}
-                {{ input_label }}
-              {% else %}
-                {{ _('Enter your email') }}
-              {% endif %}
-            </label>
-            <div class="form-input">
-              <input id="{{ id }}-input" class="send-to-device-input" name="phone-or-email" type="text" required>
-            </div>
-            <div class="form-submit">
-              <button type="submit" class="button mzp-c-button mzp-t-product">{{ _('Send') }}</button>
-            </div>
-          </div>
-          <p class="legal sms">
-            {% if legal_note_sms %}
-              {{ legal_note_sms }}
-            {% else %}
-              {% if l10n_has_tag('sendto_updates_bug1395342') %}
-                {{ _('SMS service available in select countries only. SMS &amp; data rates may apply.') }}
-              {% else %}
-                {{ _('SMS service available to U.S. phone numbers only. SMS &amp; data rates may apply.') }}
-              {% endif %}
-                {{ _('The intended recipient of the email or SMS must have consented.')}}
-            {% endif %}
-            <a href="{{ url('privacy.notices.websites') }}#campaigns" class="more">{{ _('Learn more')}}</a>
-          </p>
-          <p class="legal email">
-            {% if legal_note_email %}
-              {{ legal_note_email }}
-            {% else %}
-              {{ _('The intended recipient of the email must have consented.') }}
-            {% endif %}
-            <a href="{{ url('privacy.notices.websites') }}#campaigns" class="more">{{ _('Learn more')}}</a>
-          </p>
-        </div>
-        <div class="thank-you hidden">
-          <p class="sms">{{ _('Check your device for the email or text message!') }}</p>
-          <p class="email">{{ _('Check your device for the email!') }}</p>
-          <a href="#" role="button" class="more send-another">{{ _('Send to another device') }}</a>
-        </div>
-        <div class="loading-spinner"></div>
-      </form>
-    </div>
+          <a href="{{ url('privacy.notices.websites') }}#campaigns" class="more">{{ _('Learn more')}}</a>
+        </p>
+        <p class="legal email">
+          {% if legal_note_email %}
+            {{ legal_note_email }}
+          {% else %}
+            {{ _('The intended recipient of the email must have consented.') }}
+          {% endif %}
+          <a href="{{ url('privacy.notices.websites') }}#campaigns" class="more">{{ _('Learn more')}}</a>
+        </p>
+      </div>
+      <div class="thank-you hidden">
+        <p class="sms">{{ _('Check your device for the email or text message!') }}</p>
+        <p class="email">{{ _('Check your device for the email!') }}</p>
+        <a href="#" role="button" class="more send-another">{{ _('Send to another device') }}</a>
+      </div>
+      <div class="loading-spinner"></div>
+    </form>
   </section>
 {%- endmacro %}
 

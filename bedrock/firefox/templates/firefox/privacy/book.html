@@ -1,0 +1,167 @@
+{# This Source Code Form is subject to the terms of the Mozilla Public
+ # License, v. 2.0. If a copy of the MPL was not distributed with this
+ # file, You can obtain one at http://mozilla.org/MPL/2.0/. -#}
+
+{% from "macros-protocol.html" import hero, feature_card with context %}
+
+{% extends "firefox/base/base-protocol.html" %}
+
+{% block page_title %}{{ ftl('little-book-of') }}{% endblock %}
+{% block page_desc %}{{ ftl('the-internet-should') }}{% endblock %}
+
+{% block page_css %}
+  {{ css_bundle('privacy-book') }}
+{% endblock %}
+
+{% block content %}
+
+<div class="mzp-l-content">
+  {% call hero(
+    title=ftl('little-book-of'),
+    include_cta=True,
+    heading_level=1
+  ) %}
+    <p>{{ ftl('how-to-stay') }}</p>
+    {{ download_firefox_thanks() }}
+  {% endcall %}
+
+  <section>
+    {% call feature_card(
+      title=ftl('a-healthy-private'),
+      image_url='img/firefox/privacy/book/privacy-healthy-internet.png',
+      aspect_ratio='mzp-has-aspect-1-1',
+      class='mzp-l-card-feature-right-half mzp-t-firefox'
+    ) %}
+      <p>{{ ftl('we-believe-that') }}</p>
+      <p>{{ ftl('but-heres-good') }}</p>
+    {% endcall %}
+  </section>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h2>{{ ftl('what-risks-are') }}</h2>
+    <p>{{ ftl('theres-risk-always') }}</p>
+  </div>
+
+  <section>
+    {% call feature_card(
+      image_url='img/firefox/privacy/book/privacy-book-arrow-on-face.png',
+      aspect_ratio='mzp-has-aspect-1-1',
+      class='mzp-l-card-feature-left-half mzp-t-firefox'
+    ) %}
+
+    <ul>
+      <li>
+        <h2>{{ ftl('data-breaches-') }}</h2>
+        <p>{{ ftl('even-when-organizations') }}</p>
+      </li>
+      <li>
+        <h2>{{ ftl('the-web-never') }}</h2>
+        <p>{{ ftl('according-to-the') }}</p>
+      </li>
+      <li>
+        <h2>{{ ftl('trackers-everywhere-') }}</h2>
+        <p>{{ ftl('trackers-cookies-youve') }}</p>
+        <p>{{ ftl('tracking-cookies-are') }}</p>
+      </li>
+    </ul>
+
+    {% endcall %}
+  </section>
+
+  <section>
+    {% call feature_card(
+      image_url='img/firefox/privacy/book/privacy-troll.png',
+      aspect_ratio='mzp-has-aspect-1-1',
+      class='mzp-l-card-feature-right-half mzp-t-firefox'
+    ) %}
+
+      <h2>{{ ftl('stalkers-trolls-') }}</h2>
+      <p>{{ ftl('even-if-the') }}</p>
+    {% endcall %}
+  </section>
+
+  <section>
+    {% call feature_card(
+      image_url='img/firefox/privacy/book/privacy-callouts.png',
+      aspect_ratio='mzp-has-aspect-1-1',
+      class='mzp-l-card-feature-left-half mzp-t-firefox mzp-t-dark'
+    ) %}
+
+    <ul>
+      <li>
+        <h2>{{ ftl('fake-news-') }}</h2>
+        <p>{{ ftl('news-recommendations-are') }}</p>
+      </li>
+      <li>
+        <h2>{{ ftl('how-much-control') }}</h2>
+        <p>{{ ftl('many-of-us') }}</p>
+      </li>
+    </ul>
+
+    {% endcall %}
+  </section>
+
+</div>
+
+
+{{ ftl('healthy-internet') }}
+
+{{ ftl('15-tips-for') }}
+{{ ftl('starting-over-its') }}
+{{ ftl('a-tidy-browser') }}
+{{ ftl('delete-your-browser') }}
+{{ ftl('delete-your-google') }}
+{{ ftl('convenience-may-be') }}
+{{ ftl('search-engine-duckduckgo') }}
+{{ ftl('email-have-you') }}
+{{ ftl('browser-while-many') }}
+{{ ftl('give-firefox-focus') }}
+{{ ftl('messenger-signal-is') }}
+{{ ftl('sharing-is-caring') }}
+{{ ftl('the-art-of') }}
+{{ ftl('the-easiest-way') }}
+{{ ftl('we-love-social') }}
+{{ ftl('theres-actually-even') }}
+{{ ftl('what-feels-right') }}
+{{ ftl('what-does-the') }}
+{{ ftl('search-your-name') }}
+{{ ftl('dont-have-time') }}
+{{ ftl('breach-alert-if') }}
+{{ ftl('stay-safe-online') }}
+{{ ftl('set-up-strong') }}
+{{ ftl('some-online-services') }}
+{{ ftl('wondering-how-youre') }}
+{{ ftl('there-are-several') }}
+{{ ftl('not-just-for') }}
+{{ ftl('mfa-gets-its') }}
+{{ ftl('there-are-many') }}
+{{ ftl('safer-connections-public') }}
+{{ ftl('ideally-avoid-publicly') }}
+{{ ftl('perhaps-you-just') }}
+{{ ftl('avoid-naming-your') }}
+{{ ftl('disconnect-and-remove') }}
+{{ ftl('how-about-your') }}
+{{ ftl('the-secure-site') }}
+{{ ftl('email-accounts-and') }}
+{{ ftl('resist-the-urge') }}
+{{ ftl('from-time-to') }}
+{{ ftl('its-also-possible') }}
+{{ ftl('look-at-the') }}
+{{ ftl('you-can-of') }}
+{{ ftl('ask-yourselves-do') }}
+{{ ftl('disable-unnecessary-location') }}
+{{ ftl('many-social-media') }}
+{{ ftl('for-each-of') }}
+{{ ftl('another-reason-to') }}
+{{ ftl('dont-need-it') }}
+{{ ftl('the-more-apps') }}
+{{ ftl('check-which-apps') }}
+{{ ftl('also-reconsider-the') }}
+{{ ftl('friendly-reminder-what') }}
+{{ ftl('we-distinguish-between') }}
+{{ ftl('thirdparty-trackers-on') }}
+{{ ftl('as-you-might') }}
+{{ ftl('questions--feedback') }}
+{{ ftl('do-you-have') }}
+
+{% endblock %}

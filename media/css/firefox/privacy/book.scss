@@ -6,32 +6,98 @@ $font-path: '/media/fonts';
 $image-path: '/media/protocol/img';
 
 @import '../../../protocol/css/includes/lib';
-@import '../../../protocol/css/components/call-out';
 @import '../../../protocol/css/components/feature-card';
+@import '../../../protocol/css/components/card';
 @import '../../../protocol/css/components/hero';
 @import '../../../protocol/css/components/picto-card';
 @import '../../../protocol/css/templates/card-layout';
+@import '../../../protocol/css/components/inline-list';
+
+.mzp-l-content {
+    &.mzp-t-dark {
+        background: $color-marketing-gray-80;
+
+        .mzp-c-card-feature-desc {
+            color: $color-white;
+        }
+    }
+}
+
 
 /* -------------------------------------------------------------------------- */
+/* 15 tips section */
 
 body {
     counter-reset: tips;
 }
 
 .c-tips {
-    h3::before {
-        counter-increment: tips;
-        content: counter(tips) ". ";
-        color: $color-pink-50;
-      }
 
-    li {
-        margin-left: 30px;
-        margin-bottom: 30px;
-        list-style-type: upper-alpha;
+    .mzp-c-card-feature-content {
+        h2 {
+            @include text-display-xxl;
+            color: $color-ink-80;
 
-        &::marker {
-            font-weight: bold;
+            span {
+                @include text-display-md;
+                color: $color-ink-05;
+                display: block;
+            }
         }
     }
+
+    // h3::before {
+    //     counter-increment: tips;
+    //     content: counter(tips) ". ";
+    //     color: $color-pink-50;
+    //   }
+
+    // ol li {
+    //     margin-left: 30px;
+    //     margin-bottom: 30px;
+    //     list-style-type: upper-alpha;
+
+    //     &::marker {
+    //         font-weight: bold;
+    //     }
+    // }
 }
+
+//* -------------------------------------------------------------------------- */
+// Picto Cards
+
+// Custom Overrides pending https://github.com/mozilla/protocol/issues/382
+.mzp-c-card-picto {
+    @include bidi(((text-align, left, right),));
+    padding-top: 0;
+
+    .mzp-c-card-picto-content:before {
+        @include bidi(((left, 0, right, 0),));
+        @include background-size(56px 56px);
+        background-color: transparent;
+        margin-left: 0;
+    }
+
+    @media #{$mq-md} {
+        .mzp-c-card-picto-content:before {
+            @include bidi(((left, $spacing-lg, right, 0),));
+        }
+    }
+
+    &.search .mzp-c-card-picto-content:before {
+        background: url('/media/img/firefox/privacy/book/privacy-icon-search.svg');
+    }
+
+    &.email .mzp-c-card-picto-content:before {
+        background: url('/media/img/firefox/privacy/book/privacy-icon-email.svg');
+    }
+
+    &.messenger .mzp-c-card-picto-content:before {
+        background: url('/media/img/firefox/privacy/book/privacy-icon-messenger.svg');
+    }
+
+    &.browser .mzp-c-card-picto-content:before {
+        background: url('/media/img/firefox/privacy/book/privacy-icon-browser.svg');
+    }
+}
+

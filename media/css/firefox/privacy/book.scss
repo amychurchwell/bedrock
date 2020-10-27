@@ -13,3 +13,25 @@ $image-path: '/media/protocol/img';
 @import '../../../protocol/css/templates/card-layout';
 
 /* -------------------------------------------------------------------------- */
+
+body {
+    counter-reset: tips;
+}
+
+.c-tips {
+    h3::before {
+        counter-increment: tips;
+        content: counter(tips) ". ";
+        color: $color-pink-50;
+      }
+
+    li {
+        margin-left: 30px;
+        margin-bottom: 30px;
+        list-style-type: upper-alpha;
+
+        &::marker {
+            font-weight: bold;
+        }
+    }
+}

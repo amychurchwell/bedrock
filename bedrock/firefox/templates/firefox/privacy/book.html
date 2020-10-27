@@ -25,143 +25,205 @@
     {{ download_firefox_thanks() }}
   {% endcall %}
 
-  <section>
-    {% call feature_card(
-      title=ftl('a-healthy-private'),
-      image_url='img/firefox/privacy/book/privacy-healthy-internet.png',
-      aspect_ratio='mzp-has-aspect-1-1',
-      class='mzp-l-card-feature-right-half mzp-t-firefox'
-    ) %}
-      <p>{{ ftl('we-believe-that') }}</p>
-      <p>{{ ftl('but-heres-good') }}</p>
-    {% endcall %}
-  </section>
+  <p>{{ ftl('healthy-internet') }}</p>
 
-  <div class="mzp-l-content mzp-t-content-md">
+  {% call feature_card(
+    title=ftl('a-healthy-private'),
+    image_url='img/firefox/privacy/book/privacy-healthy-internet.png',
+    aspect_ratio='mzp-has-aspect-1-1',
+    class='mzp-l-card-feature-right-half mzp-t-firefox'
+  ) %}
+    <p>{{ ftl('we-believe-that') }}</p>
+    <p>{{ ftl('but-heres-good') }}</p>
+  {% endcall %}
+
+
+  {% call feature_card(
+    image_url='img/firefox/privacy/book/privacy-book-arrow-on-face.png',
+    aspect_ratio='mzp-has-aspect-1-1',
+    class='mzp-l-card-feature-left-half mzp-t-firefox'
+  ) %}
     <h2>{{ ftl('what-risks-are') }}</h2>
     <p>{{ ftl('theres-risk-always') }}</p>
-  </div>
 
-  <section>
-    {% call feature_card(
-      image_url='img/firefox/privacy/book/privacy-book-arrow-on-face.png',
-      aspect_ratio='mzp-has-aspect-1-1',
-      class='mzp-l-card-feature-left-half mzp-t-firefox'
-    ) %}
+    <h3>{{ ftl('data-breaches-') }}</h3>
+    <p>{{ ftl('even-when-organizations') }}</p>
 
-    <ul>
-      <li>
-        <h2>{{ ftl('data-breaches-') }}</h2>
-        <p>{{ ftl('even-when-organizations') }}</p>
-      </li>
-      <li>
-        <h2>{{ ftl('the-web-never') }}</h2>
-        <p>{{ ftl('according-to-the') }}</p>
-      </li>
-      <li>
-        <h2>{{ ftl('trackers-everywhere-') }}</h2>
-        <p>{{ ftl('trackers-cookies-youve') }}</p>
-        <p>{{ ftl('tracking-cookies-are') }}</p>
-      </li>
-    </ul>
+    <h3>{{ ftl('the-web-never') }}</h3>
+    <p>{{ ftl('according-to-the') }}</p>
 
-    {% endcall %}
-  </section>
+    <h3>{{ ftl('trackers-everywhere-') }}</h3>
+    <p>{{ ftl('trackers-cookies-youve') }}</p>
+    <p>{{ ftl('tracking-cookies-are') }}</p>
+  {% endcall %}
 
-  <section>
-    {% call feature_card(
-      image_url='img/firefox/privacy/book/privacy-troll.png',
-      aspect_ratio='mzp-has-aspect-1-1',
-      class='mzp-l-card-feature-right-half mzp-t-firefox'
-    ) %}
+  {% call feature_card(
+    image_url='img/firefox/privacy/book/privacy-troll.png',
+    aspect_ratio='mzp-has-aspect-1-1',
+    class='mzp-l-card-feature-right-half mzp-t-firefox'
+  ) %}
+    <h3>{{ ftl('stalkers-trolls-') }}</h3>
+    <p>{{ ftl('even-if-the') }}</p>
+  {% endcall %}
 
-      <h2>{{ ftl('stalkers-trolls-') }}</h2>
-      <p>{{ ftl('even-if-the') }}</p>
-    {% endcall %}
-  </section>
-
-  <section>
-    {% call feature_card(
-      image_url='img/firefox/privacy/book/privacy-callouts.png',
-      aspect_ratio='mzp-has-aspect-1-1',
-      class='mzp-l-card-feature-left-half mzp-t-firefox mzp-t-dark'
-    ) %}
-
-    <ul>
-      <li>
-        <h2>{{ ftl('fake-news-') }}</h2>
-        <p>{{ ftl('news-recommendations-are') }}</p>
-      </li>
-      <li>
-        <h2>{{ ftl('how-much-control') }}</h2>
-        <p>{{ ftl('many-of-us') }}</p>
-      </li>
-    </ul>
-
-    {% endcall %}
-  </section>
-
+  {% call feature_card(
+    image_url='img/firefox/privacy/book/privacy-callouts.png',
+    aspect_ratio='mzp-has-aspect-1-1',
+    class='mzp-l-card-feature-left-half mzp-t-firefox mzp-t-dark'
+  ) %}
+    <h3>{{ ftl('fake-news-') }}</h3>
+    <p>{{ ftl('news-recommendations-are') }}</p>
+  {% endcall %}
 </div>
 
+<section class="mzp-l-content mzp-t-content-md">
+  <h3>{{ ftl('how-much-control') }}</h3>
+  <p>{{ ftl('many-of-us') }}</p>
+</section>
 
-{{ ftl('healthy-internet') }}
+<section class="c-tips">
+  <h2>{{ ftl('tips-for') }}</h2>
 
-{{ ftl('15-tips-for') }}
-{{ ftl('starting-over-its') }}
-{{ ftl('a-tidy-browser') }}
-{{ ftl('delete-your-browser') }}
-{{ ftl('delete-your-google') }}
-{{ ftl('convenience-may-be') }}
-{{ ftl('search-engine-duckduckgo') }}
-{{ ftl('email-have-you') }}
-{{ ftl('browser-while-many') }}
-{{ ftl('give-firefox-focus') }}
-{{ ftl('messenger-signal-is') }}
-{{ ftl('sharing-is-caring') }}
-{{ ftl('the-art-of') }}
-{{ ftl('the-easiest-way') }}
-{{ ftl('we-love-social') }}
-{{ ftl('theres-actually-even') }}
-{{ ftl('what-feels-right') }}
-{{ ftl('what-does-the') }}
-{{ ftl('search-your-name') }}
-{{ ftl('dont-have-time') }}
-{{ ftl('breach-alert-if') }}
-{{ ftl('stay-safe-online') }}
-{{ ftl('set-up-strong') }}
-{{ ftl('some-online-services') }}
-{{ ftl('wondering-how-youre') }}
-{{ ftl('there-are-several') }}
-{{ ftl('not-just-for') }}
-{{ ftl('mfa-gets-its') }}
-{{ ftl('there-are-many') }}
-{{ ftl('safer-connections-public') }}
-{{ ftl('ideally-avoid-publicly') }}
-{{ ftl('perhaps-you-just') }}
-{{ ftl('avoid-naming-your') }}
-{{ ftl('disconnect-and-remove') }}
-{{ ftl('how-about-your') }}
-{{ ftl('the-secure-site') }}
-{{ ftl('email-accounts-and') }}
-{{ ftl('resist-the-urge') }}
-{{ ftl('from-time-to') }}
-{{ ftl('its-also-possible') }}
-{{ ftl('look-at-the') }}
-{{ ftl('you-can-of') }}
-{{ ftl('ask-yourselves-do') }}
-{{ ftl('disable-unnecessary-location') }}
-{{ ftl('many-social-media') }}
-{{ ftl('for-each-of') }}
-{{ ftl('another-reason-to') }}
-{{ ftl('dont-need-it') }}
-{{ ftl('the-more-apps') }}
-{{ ftl('check-which-apps') }}
-{{ ftl('also-reconsider-the') }}
-{{ ftl('friendly-reminder-what') }}
-{{ ftl('we-distinguish-between') }}
-{{ ftl('thirdparty-trackers-on') }}
-{{ ftl('as-you-might') }}
-{{ ftl('questions--feedback') }}
-{{ ftl('do-you-have') }}
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('starting-over') }}</h3>
+    <p>{{ ftl('its-time-for') }}</p>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('a-tidy-browser') }}</h3>
+    <p>{{ ftl('delete-your-browser') }}</p>
+    <p>{{ ftl('delete-your-google') }}</p>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('convenience-may-be') }}</h3>
+    <p>{{ ftl('all-of-us') }}</p>
+    <ol>
+      <li>{{ ftl('search-engine-duckduckgo') }}</li>
+      <li>{{ ftl('email-have-you') }}</li>
+      <li>{{ ftl('browser-while-many') }}</li>
+      <li>{{ ftl('give-firefox-focus') }}</li>
+      <li>{{ ftl('messenger-signal-is') }}</li>
+    </ol>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('sharing-is-caring') }}</h3>
+    <p>{{ ftl('got-it-youre') }}</p>
+    <ol>
+      <li>{{ ftl('the-art-of') }}</li>
+      <li>{{ ftl('the-easiest-way') }}</li>
+      <li>{{ ftl('we-love-social') }}</li>
+      <li>{{ ftl('theres-actually-even') }}</li>
+      <li>{{ ftl('what-feels-right') }}</li>
+    </ol>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('what-does-the') }}</h3>
+    <p>{{ ftl('to-an-extent') }}</p>
+    <ol>
+      <li>{{ ftl('search-your-name') }}</li>
+      <li>{{ ftl('dont-have-time') }}</li>
+      <li>{{ ftl('breach-alert-if') }}</li>
+    </ol>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('stay-safe-online') }}</h3>
+    <p>{{ ftl('there-are-a') }}</p>
+    <ol>
+      <li>{{ ftl('set-up-strong') }}</li>
+      <li>{{ ftl('some-online-services') }}</li>
+      <li>{{ ftl('wondering-how-youre') }}</li>
+      <li>{{ ftl('there-are-several') }}</li>
+    </ol>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('not-just-for') }}</h3>
+    <p>{{ ftl('a-strong-password') }}</p>
+    <ol>
+      <li>{{ ftl('mfa-gets-its') }}</li>
+      <li>{{ ftl('there-are-many') }}</li>
+    </ol>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('safer-connections-public') }}</h3>
+    <p>{{ ftl('public-wifi') }}</p>
+    <ol>
+      <li>{{ ftl('ideally-avoid-publicly') }}</li>
+      <li>{{ ftl('perhaps-you-just') }}</li>
+      <li>{{ ftl('avoid-naming-your') }}</li>
+      <li>{{ ftl('disconnect-and-remove') }}</li>
+    </ol>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('how-about-your') }}</h3>
+    <p>{{ ftl('bluetooth-is-a') }}</p>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('the-secure-site') }}</h3>
+    <p>{{ ftl('its-not-unusual') }}</p>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('email-accounts-and') }}</h3>
+    <p>{{ ftl('your-email-address') }}</p>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('resist-the-urge') }}</h3>
+    <p>{{ ftl('sometimes-its-easier') }}</p>
+    <ol>
+      <li>{{ ftl('from-time-to') }}</li>
+      <li>{{ ftl('its-also-possible') }}</li>
+    </ol>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('look-at-the') }}</h3>
+    <p>{{ ftl('we-already-talked') }}</p>
+    <ol>
+      <li>{{ ftl('you-can-of') }}</li>
+      <li>{{ ftl('ask-yourselves-do') }}</li>
+    </ol>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('disable-unnecessary-location') }}</h3>
+    <p>{{ ftl('todays-mobile-devices') }}</p>
+    <ol>
+      <li>{{ ftl('many-social-media') }}</li>
+      <li>{{ ftl('for-each-of') }}</li>
+      <li>{{ ftl('another-reason-to') }}</li>
+    </ol>
+  </div>
+
+  <div class="mzp-l-content mzp-t-content-md">
+    <h3>{{ ftl('dont-need-it') }}</h3>
+    <p>{{ ftl('even-if-you') }}</p>
+    <ol>
+      <li>{{ ftl('the-more-apps') }}</li>
+      <li>{{ ftl('check-which-apps') }}</li>
+      <li>{{ ftl('also-reconsider-the') }}</li>
+    </ol>
+  </div>
+</section>
+
+<section class="mzp-l-content mzp-t-content-md">
+  <h2>{{ ftl('friendly-reminder-what') }}</h2>
+  <p>{{ ftl('we-distinguish-between') }}</p>
+  <p>{{ ftl('thirdparty-trackers-on') }}</p>
+  <p>{{ ftl('as-you-might') }}</p>
+</section>
+
+<section class="mzp-l-content mzp-t-content-md">
+<h2>{{ ftl('questions-feedback') }}</h2>
+<p>{{ ftl('do-you-have') }}</p>
+</section>
 
 {% endblock %}
